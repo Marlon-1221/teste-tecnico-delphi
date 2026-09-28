@@ -1,0 +1,23 @@
+# Saídas de compilação do Delphi
+Win32/
+Win64/
+Win64x/
+*.dcu
+*.exe
+*.dll
+*.bpl
+*.dcp
+*.map
+*.drc
+*.rsm
+*.tds
+*.res
+
+# Arquivos locais da IDE
+*.local
+*.identcache
+*.dsk
+*.stat
+__history/
+__recovery/
+*.~*

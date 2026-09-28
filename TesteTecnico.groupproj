@@ -1,0 +1,72 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{4C8E2B17-9A3D-4F61-B5E2-7D1A9C3F8E24}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="servidor\Servidor.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="cliente\Cliente.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="testes\TestesComum.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="testes\TestesDados.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Servidor">
+        <MSBuild Projects="servidor\Servidor.dproj"/>
+    </Target>
+    <Target Name="Servidor:Clean">
+        <MSBuild Projects="servidor\Servidor.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Servidor:Make">
+        <MSBuild Projects="servidor\Servidor.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Cliente">
+        <MSBuild Projects="cliente\Cliente.dproj"/>
+    </Target>
+    <Target Name="Cliente:Clean">
+        <MSBuild Projects="cliente\Cliente.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Cliente:Make">
+        <MSBuild Projects="cliente\Cliente.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="TestesComum">
+        <MSBuild Projects="testes\TestesComum.dproj"/>
+    </Target>
+    <Target Name="TestesComum:Clean">
+        <MSBuild Projects="testes\TestesComum.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TestesComum:Make">
+        <MSBuild Projects="testes\TestesComum.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="TestesDados">
+        <MSBuild Projects="testes\TestesDados.dproj"/>
+    </Target>
+    <Target Name="TestesDados:Clean">
+        <MSBuild Projects="testes\TestesDados.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TestesDados:Make">
+        <MSBuild Projects="testes\TestesDados.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Servidor;Cliente;TestesComum;TestesDados"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Servidor:Clean;Cliente:Clean;TestesComum:Clean;TestesDados:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Servidor:Make;Cliente:Make;TestesComum:Make;TestesDados:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
